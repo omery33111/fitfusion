@@ -6,7 +6,7 @@ export interface Callback {
   name: string;
   instagram: string;
   phone_number: string;
-  message?: string | "ללא הודעה.";
+  message?: string;
 }
 
 export interface CallbackState {

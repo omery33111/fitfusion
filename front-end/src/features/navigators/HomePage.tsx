@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import Callback from '../callback/Callback';
+import '../../index.css';
 
 const HomePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -30,14 +31,17 @@ const HomePage = () => {
   }, [inView, isPlaying]);
 
   return (
-    <div>
-      <div>
-        <img
-          className="d-block w-100" // Use w-100 to make the image responsive
-          src={require('../../images/mypicture.png')}
-          alt="background picture"
-        />
-      </div>
+    <div style = {{backgroundColor: "#002b51"}}>
+      <div
+        className="background-image"
+        style={{
+          backgroundImage: `url(${require('../../images/mainpic.png')})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          height: '110vh', // Adjust this value to set the height of the background
+        }}
+      />
       <Container
         className="d-flex justify-content-center align-items-center"
         style={{ position: 'relative', top: 50 }}
@@ -58,7 +62,7 @@ const HomePage = () => {
         </div>
       </Container>
 
-      <Callback/>
+      <Callback />
     </div>
   );
 };
