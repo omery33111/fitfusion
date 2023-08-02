@@ -12,7 +12,6 @@ const MyFooter = () => {
   return (
     
     <div>
-    <div style = {{height: 500}}/>
     <footer style={{ height: "200px", width: "100%", position: 'relative', bottom: 0, backgroundColor: 'Black' }} className="text-light py-4">
     <Container className='text-center'>
                 <a href="" target="_blank" style={{ color: "white" }}>

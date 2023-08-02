@@ -7,6 +7,7 @@ import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from './features/navigators/HomePage';
+import Instagram from './features/navigators/Instagram';
 
 
 
@@ -24,6 +25,8 @@ root.render(
           <Route path = "/" element={<App />}>
           
           <Route path = "/" element={<HomePage />} />
+
+          <Route path = "/instagram" element={<Instagram />} />
 
           </Route></Routes>
 

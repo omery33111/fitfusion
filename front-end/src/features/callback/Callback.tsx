@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useAppDispatch } from '../../app/hooks';
 import { postCallbackAsync } from './callbackSlice';
 import { toast } from 'react-toastify';
+import Instagram from '../navigators/Instagram';
 
 const Callback = () => {
   const dispatch = useAppDispatch();
@@ -47,7 +48,7 @@ const Callback = () => {
     
     <div>
       <div style = {{height: "100px"}}/>
-    <Container fluid style={{ width: "80%", backgroundColor: '#8B6C50', borderRadius: '15px', padding: '20px' }}>
+    <Container fluid style={{ width: "80%", backgroundColor: 'grey', borderRadius: '15px', padding: '20px' }}>
       <Row className="justify-content-center">
         <Col md={8} lg={5}>
           <div style={{ textAlign: 'right', color: 'white' }}>
@@ -107,7 +108,7 @@ const Callback = () => {
 
             <br/>
 
-            <Button variant="success" type="submit" style={{ width: '70%' }}>
+            <Button variant="success" type="submit" style={{width: '70%'}}>
               !שלח פרטים
             </Button>
             <br /><br />
@@ -127,7 +128,13 @@ const Callback = () => {
         />
         </Col>
       </Row>
+
+      
     </Container>
+
+          
+
+
     </div>
   );
 };
