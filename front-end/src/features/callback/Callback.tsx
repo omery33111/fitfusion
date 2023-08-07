@@ -3,7 +3,6 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useAppDispatch } from '../../app/hooks';
 import { postCallbackAsync } from './callbackSlice';
 import { toast } from 'react-toastify';
-import Instagram from '../navigators/Instagram';
 
 const Callback = () => {
   const dispatch = useAppDispatch();
@@ -47,16 +46,21 @@ const Callback = () => {
   return (
     
     <div>
-      <div style = {{height: "100px"}}/>
-    <Container fluid style={{ width: "80%", backgroundColor: 'grey', borderRadius: '15px', padding: '20px' }}>
+    <Container fluid style={{ width: "80%", backgroundColor: '#505666', borderRadius: '15px', padding: '15px',
+                              boxShadow: '0 10px 20px 0 rgba(0, 0, 0, 0.6), 0 1px 40px 0 rgba(0, 0, 0, 0.50)' }}>
       <Row className="justify-content-center">
-        <Col md={8} lg={5}>
+        <Col md={8} lg={6}>
           <div style={{ textAlign: 'right', color: 'white' }}>
-            <h3>קבלת ייעוץ לפגישה</h3>
-            <p>אני מאפשר דיאלוג ראשוני למען תיאום והבנה של התהליך<br />
-              .דרך וצורת התהליך ועוד פרטים עניניים<br />
-              <br />
-              !מלאו פרטים ואחזור אליכם עם כל המידע הדרוש תוך 24 שעות
+              <br/>
+            <p>קבלת ייעוץ לפגישה
+              <br/>
+              <br/>
+              <div>
+                <p>
+              אני מאפשר דיאלוג ראשוני למען תיאום והבנה של התהליך, דרך וצורת התהליך ועוד פרטים עניניים.
+            מלאו פרטים ואחזור אליכם עם כל המידע הדרוש תוך 24 שעות
+              </p>
+              </div>
             </p>
           </div>
 
@@ -107,15 +111,16 @@ const Callback = () => {
             </Form.Group>
 
             <br/>
+            <br/>
 
-            <Button variant="success" type="submit" style={{width: '70%'}}>
+            <Button variant="warning" type="submit" style={{width: '70%'}}>
               !שלח פרטים
             </Button>
             <br /><br />
           </Form>
         </Col>
 
-        <Col md={4} lg={5} className="text-center">
+        <Col md={4} lg={4} className="text-center">
         <img
           src={require('../../images/24.png')}
           alt="24 hours"
@@ -123,9 +128,7 @@ const Callback = () => {
           width="100%"
           style={{
             filter: "brightness(0) invert(1)",
-            position: "relative",
-          }}
-        />
+            position: "relative"}}/>
         </Col>
       </Row>
 

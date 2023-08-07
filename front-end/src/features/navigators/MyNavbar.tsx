@@ -2,10 +2,22 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BsFileText } from "react-icons/bs";
+// import { useAppDispatch } from '../../app/hooks';
+// import { logoutAsync, reset } from '../authentication/authenticationSlice';
 
 
 
 const MyNavbar = () => {
+  // const dispatch = useAppDispatch()
+
+  // const onLogout = () => {
+  //   dispatch(logoutAsync());
+  //   dispatch(reset());
+  //   window.location.href = "/";
+  // };
+
+  const storedIsStaff = JSON.parse(localStorage.getItem('is_staff') as string)
+
   return (
     <div>
         <Navbar style = {{backgroundColor: "#002c44"}}>
@@ -44,6 +56,21 @@ const MyNavbar = () => {
             <Nav>
 
             <Navbar.Brand style = {{color: "white"}} href="/">שגב סעדה</Navbar.Brand>
+
+            {storedIsStaff ? (
+              
+              <Nav.Link style = {{color: "white",  bottom: 5, position: "absolute", marginLeft: 35}} href = "/portal">
+              פורטל
+              </Nav.Link>
+
+            ) : (
+
+            <Nav.Link style = {{color: "white",  bottom: 5, position: "absolute", marginLeft: 13}} href = "/authentication/login">
+            התחברות
+            </Nav.Link>
+
+            )}
+            
 
             </Nav>
 

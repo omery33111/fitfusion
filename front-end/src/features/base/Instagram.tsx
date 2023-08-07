@@ -11,7 +11,7 @@ const Instagram = () => {
       <header>
         <div className="header-wrap">
           <div className="profile-pic">
-            <img src={require('../../images/omer.jpg')} alt="profile-logo" />
+            <img src={require('../../images/profilepic.png')} alt="profile-logo" />
           </div>
           <div className="profile-info">
 
@@ -224,33 +224,33 @@ const Instagram = () => {
       <div className="gallery">
 
         <div className="gallery-item">
-          <img alt="gallery-post" src={require('../../images/omer.jpg')} />
+          <img alt="gallery-post" src={require('../../images/pic1.png')} />
+          <span></span>
+        </div>
+
+        <div className="gallery-item">
+          <img alt="gallery-post" src={require('../../images/pic2.png')} />
           <span className="media-icon"></span>
         </div>
 
         <div className="gallery-item">
-          <img alt="gallery-post" src={require('../../images/omer.jpg')} />
+          <img alt="gallery-post" src={require('../../images/pic3.png')} />
           <span className="media-icon"></span>
         </div>
 
         <div className="gallery-item">
-          <img alt="gallery-post" src={require('../../images/omer.jpg')} />
+          <img alt="gallery-post" src={require('../../images/pic4.png')} />
+          <span></span>
+        </div>
+
+        <div className="gallery-item">
+          <img alt="gallery-post" src={require('../../images/pic5.png')} />
           <span className="media-icon"></span>
         </div>
 
         <div className="gallery-item">
-          <img alt="gallery-post" src={require('../../images/omer.jpg')} />
-          <span className="media-icon"></span>
-        </div>
-
-        <div className="gallery-item">
-          <img alt="gallery-post" src={require('../../images/omer.jpg')} />
-          <span className="media-icon"></span>
-        </div>
-
-        <div className="gallery-item">
-          <img alt="gallery-post" src={require('../../images/omer.jpg')} />
-          <span className="media-icon"></span>
+          <img alt="gallery-post" src={require('../../images/pic6.png')} />
+          <span></span>
         </div>
 
       </div>

@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import callbackReducer from '../features/callback/callbackSlice';
+import authenticationReducer from '../features/authentication/authenticationSlice';
+import administratorReducer from '../features/administrator/administratorSlice';
 
 export const store = configureStore({
   reducer: {
-    callback: callbackReducer
+    callback: callbackReducer,
+    authentication: authenticationReducer,
+    administrator: administratorReducer
   },
 });
 

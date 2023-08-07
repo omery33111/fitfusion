@@ -3,6 +3,7 @@ import { Button, Container } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import Callback from '../callback/Callback';
 import '../../index.css';
+import Body from './Body';
 
 const HomePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -26,11 +27,11 @@ const HomePage = () => {
   }, [inView, isPlaying]);
 
   return (
-    <div style={{ backgroundColor: '#002c44', position: 'relative', overflow: "hidden"}}>
+    <div style={{ backgroundColor: '#002c50', position: 'relative', overflow: "hidden"}}>
       <div
         className="background-image"
         style={{
-          backgroundImage: `url(${require('../../images/mainpic2.png')})`,
+          backgroundImage: `url(${require('../../images/mainpic.png')})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -47,10 +48,11 @@ const HomePage = () => {
         </Container>
 
       </div>
+      
 
       <Container
         className="d-flex justify-content-center align-items-center"
-        style={{ position: 'relative', top: 50 }}
+        style={{ position: 'relative', top: 150}}
       >
         <div ref={inViewRef} style={{ maxWidth: '1000px', width: '100%' }}>
           <video
@@ -67,6 +69,13 @@ const HomePage = () => {
           </video>
         </div>
       </Container>
+
+      <div>
+        <div style = {{height: 250}} />
+
+          <Body/>
+
+      </div>
 
           <div id = "callback">
       <Callback/>

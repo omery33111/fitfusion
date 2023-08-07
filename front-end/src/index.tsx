@@ -6,8 +6,10 @@ import App from './App';
 import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import HomePage from './features/navigators/HomePage';
-import Instagram from './features/navigators/Instagram';
+import Login from './features/authentication/Login';
+import HomePage from './features/base/HomePage';
+import Instagram from './features/base/Instagram';
+import Portal from './features/administrator/Portal';
 
 
 
@@ -27,6 +29,10 @@ root.render(
           <Route path = "/" element={<HomePage />} />
 
           <Route path = "/instagram" element={<Instagram />} />
+
+          <Route path = "/authentication/login" element={<Login />} />
+
+          <Route path = "/portal" element={<Portal />} />
 
           </Route></Routes>
 
