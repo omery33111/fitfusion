@@ -34,7 +34,6 @@ const initialState: AuthenticationState =
 };
 
 
-
 export const loginAsync = createAsyncThunk("authentication/login", async (user: Login) =>
 {
         return await authenticationService.login(user)
@@ -57,6 +56,10 @@ export const authenticationSlice = createSlice({
         {
         state.isSuccess = false;
         state.isLoading = false;
+        state.isLogged = false;
+        if (localStorage.getItem("is_staff") == "true") {
+            state.is_staff = false
+          }
         },
 
         LoggedOff: (state) =>
@@ -104,6 +107,10 @@ export const authenticationSlice = createSlice({
             state.userName = ""
             state.isLogged = false
             state.access = ""
+            // const previousPath = localStorage.getItem('previousPath');
+            // if (previousPath) {
+            // window.location.pathname = previousPath;
+            // localStorage.removeItem('previousPath')}
         });
     }
 
@@ -111,10 +118,10 @@ export const authenticationSlice = createSlice({
 
 
 export const selectUser = (state: RootState) => state.authentication.userName;
+export const selectIsStaff = (state: RootState) => state.authentication.is_staff;
 export const selectIsLogged = (state: RootState) => state.authentication.isLogged;
 export const selectIsLoading = (state: RootState) => state.authentication.isLoading;
 export const selectIsError = (state: RootState) => state.authentication.isError;
-export const selectIsStaff = (state: RootState) => state.authentication.is_staff;
 
 export const { reset, LoggedOff, LoggedOn } = authenticationSlice.actions;
 

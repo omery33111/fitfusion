@@ -114,7 +114,7 @@ const Callback = () => {
             <br/>
 
             <Button variant="warning" type="submit" style={{width: '70%'}}>
-              !שלח פרטים
+              <b>!שלח פרטים</b>
             </Button>
             <br /><br />
           </Form>

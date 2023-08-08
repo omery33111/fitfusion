@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Button } from 'react-bootstrap';
 import { deleteCallbackAsync, getCallbacksAsync, selectAllCallbacks } from './administratorSlice';
 import { toast } from 'react-toastify';
+import { logoutAsync, reset } from '../authentication/authenticationSlice';
 
 
 
@@ -40,29 +41,34 @@ const handleCallbackDelete = async (id: string) => {
   }
 };
 
-
+  const onLogout = () => {
+    dispatch(logoutAsync());
+    dispatch(reset());
+    window.location.href = "/";
+  };
   
   return (
 
     <div style={{ overflow: "hidden" }}>
       <div style={{ height: '10vh' }} />
-      <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: "#002c50", height: "90%"}}>
-        <div style={{ marginRight: '22%', textAlign: 'right' }}>
+      <div className="d-flex justify-content-center align-items-center" style={{ backgroundColor: "#002c50"}}>
+        <div style={{ textAlign: 'right' }}>
           <br/>
           <h1 style = {{color: "white", position: "relative", right: "-15%"}}>השאירו פרטים</h1>
           <br/>
-          <Accordion style = {{width: "130%"}}>
+
+          <Accordion>
             {[...callbacks].reverse().map((callback, index) => (
               <Accordion.Item key={index} eventKey={index.toString()}>
                 <Accordion.Header>
                   {callback.name}
                 </Accordion.Header>
                 <Accordion.Body>
-                  <p>מיקום בארץ: {callback.instagram}</p>
+                  <p>@{callback.instagram} :אינסטגרם</p>
                   <p>מספר טלפון: {callback.phone_number}</p>
                   <p>הודעה: {callback.message}</p>
 
-                  <p style={{ position: "absolute", right: "", transform: "translateY(-40px)" }}>
+                  <p style={{ position: "absolute", right: "", transform: "translateY(-30px)" }}>
                 <span>
                 <a onClick={() => handleCallbackDelete(callback.id)} style={{ color: "red", cursor: "pointer" }}>מחק</a>
                 </span>

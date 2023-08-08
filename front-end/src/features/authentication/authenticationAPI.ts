@@ -17,11 +17,14 @@ const login = async (userData: Login) => {
 const logout = () =>
 {
     localStorage.removeItem("token")
+    localStorage.removeItem("is_staff")
+    localStorage.removeItem("userName")
 }
 
 const authenticationService = {
     login,
     logout,
+    
 }
 
 export default authenticationService
