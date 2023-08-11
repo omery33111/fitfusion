@@ -37,14 +37,13 @@ const HomePage = () => {
           backgroundPosition: 'center',
           height: '110vh'}}>
 
-        
-        <Container className="d-flex justify-content-center align-items-center" style={{position: 'relative', top: '14.4%'}}>
-          <Button href = "/instagram" variant = "none" style = {{width: "30%", height: 65}}></Button>
+        <Container className="d-flex justify-content-center align-items-center" style={{position: 'relative', top: '7.5%'}}>
+          <Button href = "/instagram" variant = "none" style = {{width: "30vh", height: "60px"}}></Button>
         </Container>
         
-
-        <Container className="d-flex justify-content-center align-items-center" style={{position: 'relative', top: '17%'}}>
-          <Button href = "#callback" variant = "none" style = {{width: "30%", height: 75}}></Button>
+          
+        <Container className="d-flex justify-content-center align-items-center" style={{position: 'relative', top: '10.2%'}}>
+          <Button href = "#callback" variant = "none" style = {{width: "30vh", height: "70px"}}></Button>
         </Container>
 
       </div>
@@ -78,6 +77,7 @@ const HomePage = () => {
       </div>
 
           <div id = "callback">
+          <div style = {{height: 100}} />
       <Callback/>
       </div>
       <div style = {{height: 100}} />

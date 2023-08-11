@@ -5,14 +5,19 @@ import { Login } from "../../models/Authentication";
 
 
 const login = async (userData: Login) => {
-    const response = await axios.post(loginURL, userData)
+    try {
+        const response = await axios.post(loginURL, userData);
 
-    if (response.data) {
-        localStorage.setItem("token", JSON.stringify(response.data))
+        if (response.data) {
+            localStorage.setItem("token", JSON.stringify(response.data));
+        }
+
+        return response.data;
+    } catch (error) {
+        throw error;
     }
+};
 
-    return response.data
-}
 
 const logout = () =>
 {
@@ -24,7 +29,6 @@ const logout = () =>
 const authenticationService = {
     login,
     logout,
-    
 }
 
 export default authenticationService

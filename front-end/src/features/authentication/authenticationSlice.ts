@@ -34,10 +34,14 @@ const initialState: AuthenticationState =
 };
 
 
-export const loginAsync = createAsyncThunk("authentication/login", async (user: Login) =>
-{
-        return await authenticationService.login(user)
-})
+export const loginAsync = createAsyncThunk("authentication/login", async (user: Login) => {
+    try {
+        const result = await authenticationService.login(user);
+        return result;
+    } catch (error) {
+        throw error;
+    }
+});
 
 
 export const logoutAsync = createAsyncThunk('auth/logout',
@@ -57,7 +61,7 @@ export const authenticationSlice = createSlice({
         state.isSuccess = false;
         state.isLoading = false;
         state.isLogged = false;
-        if (localStorage.getItem("is_staff") == "true") {
+        if (localStorage.getItem("is_staff") === "true") {
             state.is_staff = false
           }
         },
@@ -84,8 +88,10 @@ export const authenticationSlice = createSlice({
         builder
         .addCase(loginAsync.pending, (state) =>
         {
-            state.isLoading = true
+            state.isLoading = true;
+            state.isError = false;
         })
+
         .addCase(loginAsync.fulfilled, (state, action) => {
             const decoded: MyToken = jwt_decode(action.payload.access)
         
@@ -98,9 +104,13 @@ export const authenticationSlice = createSlice({
             state.isLoading = false;
             state.isSuccess = true;
             state.isLogged = true
+            state.isError = false;
         })
-        
-        
+
+        .addCase(loginAsync.rejected, (state) => {
+            state.isLoading = false;
+            state.isError = true;
+        })
 
         .addCase(logoutAsync.fulfilled, (state) =>
         {

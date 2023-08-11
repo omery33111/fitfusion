@@ -1,16 +1,16 @@
-import { Button, Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BsFileText } from "react-icons/bs";
-import { useAppSelector } from '../../app/hooks';
-import { selectIsLogged, selectIsStaff } from '../authentication/authenticationSlice';
 import { useAppDispatch } from '../../app/hooks';
 import { logoutAsync, reset } from '../authentication/authenticationSlice';
+import { useLocation } from 'react-router-dom';
 
 
 
 const MyNavbar = () => {
   const dispatch = useAppDispatch()
+  const location = useLocation();
 
   const onLogout = () => {
     dispatch(logoutAsync());
@@ -18,10 +18,13 @@ const MyNavbar = () => {
     window.location.href = "/";
   };
 
-  const storedIsStaff = JSON.parse(localStorage.getItem('is_staff') as string)
+  const handleNavbarClick = () => {
+    if (location.pathname !== '/') {
+      window.location.href = '/';
+    }
+  };
 
-  const isLogged = useAppSelector(selectIsLogged)
-  const isStaff = useAppSelector(selectIsStaff)
+  const storedIsStaff = JSON.parse(localStorage.getItem('is_staff') as string)
 
   return (
     <div>
@@ -43,13 +46,15 @@ const MyNavbar = () => {
               <FontAwesomeIcon icon={faWhatsapp} size = '2x' />
               </Nav.Link>
 
-              <Nav.Link style = {{color: "white", position: "relative", left: "10%"}} href = "#callback">
+              <Nav.Link style = {{color: "white", position: "relative", left: "10%"}} href = "#callback" onClick={handleNavbarClick}>
               <BsFileText style={{margin: "3 20px", fontSize: "30px"}}/>
               <div style = {{position: "absolute", marginLeft: "15px"}}>
               פרטים
               </div>
               </Nav.Link>
               
+
+
               <Nav.Link style = {{color: "white", position: "relative", left: "20%"}} href = "https://www.instagram.com/segev_saada/">
               <FontAwesomeIcon icon={faInstagram} size = '2x'/>
               </Nav.Link>
@@ -60,12 +65,13 @@ const MyNavbar = () => {
 
             <Nav>
 
-              {storedIsStaff ? (<Navbar.Brand style = {{color: "white", position: "relative", top: -10}} href="/portal">שגב סעדה</Navbar.Brand>) :
-              
-              (<Navbar.Brand style = {{color: "white", position: "relative", top: -10}} href="/">שגב סעדה</Navbar.Brand>)
-              }
-
-              
+            <Navbar.Brand
+              style={{ color: 'white', position: 'relative', top: -10 }}
+              href={storedIsStaff ? (location.pathname === '/' ? '/portal' : '/') : '/'}
+              onClick={handleNavbarClick}
+            >
+              שגב סעדה
+            </Navbar.Brand>
 
               {storedIsStaff ? (
                 

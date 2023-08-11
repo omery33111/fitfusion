@@ -10,7 +10,7 @@ import { logoutAsync, reset } from '../authentication/authenticationSlice';
 const Portal = () => {
 
 
-  const dispatch = useAppDispatch();
+const dispatch = useAppDispatch();
 
   const callbacks = useAppSelector(selectAllCallbacks);
 
@@ -41,34 +41,32 @@ const handleCallbackDelete = async (id: string) => {
   }
 };
 
-  const onLogout = () => {
-    dispatch(logoutAsync());
-    dispatch(reset());
-    window.location.href = "/";
-  };
-  
   return (
 
-    <div style={{ overflow: "hidden" }}>
-      <div style={{ height: '10vh' }} />
-      <div className="d-flex justify-content-center align-items-center" style={{ backgroundColor: "#002c50"}}>
-        <div style={{ textAlign: 'right' }}>
+    <div style = {{overflow: "hidden"}}>
+
+
+<div style={{ height: '10vh' }} />
+<div style={{ display: 'flex', justifyContent: 'center', minHeight: '70vh', backgroundColor: "#002c50"}}>
+        <div style={{ textAlign: 'right', overflow: 'hidden', width: 300}}>
           <br/>
-          <h1 style = {{color: "white", position: "relative", right: "-15%"}}>השאירו פרטים</h1>
+          <h1 style = {{color: "white", display: 'flex', justifyContent: 'center'}}>השאירו פרטים</h1>
           <br/>
 
           <Accordion>
             {[...callbacks].reverse().map((callback, index) => (
               <Accordion.Item key={index} eventKey={index.toString()}>
                 <Accordion.Header>
+                  <h4>
                   {callback.name}
+                  </h4>
                 </Accordion.Header>
                 <Accordion.Body>
                   <p>@{callback.instagram} :אינסטגרם</p>
                   <p>מספר טלפון: {callback.phone_number}</p>
                   <p>הודעה: {callback.message}</p>
 
-                  <p style={{ position: "absolute", right: "", transform: "translateY(-30px)" }}>
+                  <p style={{ position: "absolute", transform: "translateY(-30px)" }}>
                 <span>
                 <a onClick={() => handleCallbackDelete(callback.id)} style={{ color: "red", cursor: "pointer" }}>מחק</a>
                 </span>
