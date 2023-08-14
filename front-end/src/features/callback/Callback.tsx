@@ -19,7 +19,7 @@ const Callback = () => {
       name: name,
       instagram: instagram,
       phone_number: phoneNumber,
-      message: message || 'ללא הודעה.',
+      message: message || 'ללא הודעה',
     };
 
     try {

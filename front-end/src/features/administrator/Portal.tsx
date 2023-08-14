@@ -25,7 +25,7 @@ const handleCallbackDelete = async (id: string) => {
     await dispatch(deleteCallbackAsync(id));
     const deletedCallback = callbacks.find((callback) => callback.id === id);
     if (deletedCallback) {
-      toast.success(`הפרטים של '${deletedCallback.name}' נמחקו בהצלחה!`, {
+      toast.success(`הפרטים של ${deletedCallback.name} נמחקו בהצלחה!`, {
         position: 'top-center',
         autoClose: 3000,
         hideProgressBar: true,

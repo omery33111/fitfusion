@@ -32,7 +32,7 @@ const Instagram = () => {
                 </ul>
               </div>
               <div className="descriptions row last">
-                <h1>שגב סעדה</h1>
+                <b>שגב סעדה</b>
                 <span>
                 Fitness Trainer
                   <br />
@@ -69,48 +69,56 @@ const Instagram = () => {
       </header>
 
       <ul className="stories">
-        <li className="story-item">
+
+      <li className="story-item">
           <div className="image">
-            <img src={require('../../images/omer.jpg')} />
-          </div>
-          <div className="title">🐾</div>
-        </li>
-        <li className="story-item">
-          <div className="image">
-            <img src={require('../../images/omer.jpg')} />
+            <img src={require('../../images/highcon1.jpg')} />
           </div>
           <div className="title">טיפים בתזונה</div>
         </li>
+
         <li className="story-item">
           <div className="image">
-            <img src={require('../../images/omer.jpg')} />
+            <img src={require('../../images/highcon5.png')} />
+          </div>
+          <div className="title">🐾</div>
+        </li>
+
+        <li className="story-item">
+          <div className="image">
+            <img src={require('../../images/highcon6.jpg')} />
           </div>
           <div className="title">💯 תוצאות</div>
         </li>
+
         <li className="story-item">
           <div className="image">
-            <img src={require('../../images/omer.jpg')} />
+            <img src={require('../../images/highcon7.png')} />
           </div>
           <div className="title">✍️ לימודים</div>
         </li>
+
         <li className="story-item">
           <div className="image">
-            <img src={require('../../images/omer.jpg')} />
+            <img src={require('../../images/highcon8.png')} />
           </div>
           <div className="title">האימונים שלי</div>
         </li>
+
         <li className="story-item">
           <div className="image">
-            <img src={require('../../images/omer.jpg')} />
+            <img src={require('../../images/highcon4.png')} />
           </div>
           <div className="title">טיפים בכושר</div>
         </li>
+
         <li className="story-item">
           <div className="image">
-            <img src={require('../../images/omer.jpg')} />
+            <img src={require('../../images/highcon9.png')} />
           </div>
           <div className="title">טיפים לשינה</div>
         </li>
+
       </ul>
 
       <div className="desktop-only">
