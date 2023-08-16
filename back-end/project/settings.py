@@ -1,5 +1,6 @@
 from datetime import timedelta
 from pathlib import Path
+import os
 
 
 
@@ -11,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gee_=5@b4wn2-23%o9o1=cucb9t!4r@yw7im*7i)wq20u$6p73'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'default_secret_key_if_not_set')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
